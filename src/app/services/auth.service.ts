@@ -6,6 +6,10 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AuthService {
 
+  isLoggedOut:boolean;
+
+  currentUser: any = {};
+
   constructor(private myHttp: Http) { }
 
   // POST signup
@@ -31,7 +35,7 @@ export class AuthService {
   // POST login
   patientLogin(email, password) {
     return this.myHttp.post(
-      'http://localhost/patient-api/login',
+      'http://localhost:3000/patient-api/login',
       {
         email:email,
         password:password
@@ -41,33 +45,6 @@ export class AuthService {
     .toPromise()
     .then(res => res.json());
   }
-
-  // POST logout
-  patientLogout() {
-    return this.myHttp
-      .post(
-        'http://localhost/patient-api/logout',
-        {},
-        {withCredentials:true}
-      )
-      .toPromise()
-      .then(res => res.json());
-  }
-
-  // GET checklogin
-  patientChecklogin() {
-    return this.myHttp.get(
-      'http://localhost/patient-api/checklogin',
-      // send cookies across domains
-      {withCredentials:true},
-    )
-  }
-
-
-
-
-
-
 
 
   // DOCTOR AUTH FUNCTIONS
@@ -94,7 +71,7 @@ export class AuthService {
   // POST login
   doctorLogin(email, password) {
     return this.myHttp.post(
-      'http://localhost/doctor-api/login',
+      'http://localhost:3000/doctor-api/login',
       {
         email:email,
         password:password
@@ -105,22 +82,32 @@ export class AuthService {
     .then(res => res.json());
   }
 
+
+
+// dynamic functions - still refactoring others
+
   // POST logout
-  doctorLogout() {
+  logout() {
     return this.myHttp
-      .post(
-        'http://localhost/doctor-api/logout',
-        {},
-        {withCredentials:true}
-      )
+    .post(
+      'http://localhost:3000/api/logout',
+      {},
+      {withCredentials:true}
+    )
+    .toPromise()
+    // parse JSON
+    .then(res => res.json());
   }
 
   // GET checklogin
-  doctorChecklogin() {
+  checklogin() {
     return this.myHttp.get(
-      'http://localhost/doctor-api/checklogin',
+      'http://localhost:3000/api/checklogin',
       // send cookies across domains
       {withCredentials:true},
     )
+    .toPromise()
+    .then(res => res.json());
   }
+
 }

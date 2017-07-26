@@ -1,3 +1,12 @@
-<p>
-  patient works!
-</p>
+<section class="patient-section">
+  Hello, {{authService.currentUser.firstName}}
+</section>
+<form (ngSubmit)="addPatientData()">
+
+</form>
+<form (ngSubmit)="addToDoctor()">
+  <label for="doctor-code"></label>
+  <input id="doctor-code" [(ngModel)]="doctorCode"
+  name="doctor-code"/>
+  <button>add doctor</button>
+</form>

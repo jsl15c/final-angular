@@ -1,3 +1,5 @@
+@import "../utilities/_variables.scss";
+
 .logo {
   margin-left:80px;
   font-size:24px;
@@ -5,4 +7,18 @@
 
 nav {
   margin-right:80px;
+
+  a {
+    color:$dark-blue;
+    margin-left:20px;
+    text-decoration: none;
+    padding:10px 15px;
+    cursor: pointer;
+  }
+  a:nth-child(1) {
+    background-color: $dark-blue;
+    color: $body-color;
+    border:1px solid $body-color;
+    border-radius: 100px;
+  }
 }

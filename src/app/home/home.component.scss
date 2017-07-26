@@ -1,0 +1,84 @@
+@import "../../utilities/_variables.scss";
+
+.header-container {
+  height:90vh;
+  //76vh
+  width:100%;
+  text-align: center;
+  position: relative;
+
+  h2 {
+    padding-top:100px;
+    color:#fff;
+    display: inline-block;
+  }
+  img {
+    position: absolute;
+    bottom:0;
+    left:0;
+    max-width: 100%;
+  }
+}
+
+.how-it-works {
+  height:75vh;
+  background:$light-blue;
+
+  .content {
+    text-align: center;
+    padding:50px;
+
+    h3 {
+      font-size: 36px;
+    }
+
+    img {
+      display:block;
+      margin:auto;
+      max-width:50px;
+      margin-top:20px;
+    }
+
+    span {
+      margin:4%;
+      cursor: pointer;
+    }
+
+    .default {
+      transition:0.3s linear;
+      color:rgba(0,0,0,0.5);
+      font-size:18px;
+    }
+
+    .selected {
+      transition:0.3s linear;
+      color:rgba(0,0,0,1);
+      font-size:20px;
+    }
+  }
+
+  .how-toggle {
+    margin-top:50px;
+    height:40px;
+
+    span {
+      font-size:18px;
+    }
+  }
+
+  .steps-info {
+    text-align: left;
+    width:200px;
+    margin:auto;
+    margin-top:50px;
+
+    .displayInfo {
+
+    }
+  }
+
+}
+
+@media screen and (max-width:485px){
+
+}

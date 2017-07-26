@@ -1,0 +1,19 @@
+<form (ngSubmit)="patientLogin()">
+  <label for="email-input">Email</label>
+  <input id="email-input" name="email"
+  [(ngModel)]="email"/>
+  <label for="password-input">Password</label>
+  <input id="password-input" name="password"
+  [(ngModel)]="password"/>
+  <button>patient login</button>
+</form>
+<br />
+<form (ngSubmit)="doctorLogin()">
+  <label for="email-input">Email</label>
+  <input id="email-input" name="email"
+  [(ngModel)]="email"/>
+  <label for="password-input">Password</label>
+  <input id="password-input" name="password"
+  [(ngModel)]="password"/>
+  <button>doctor login</button>
+</form>

@@ -1,11 +1,17 @@
 <header>
-  <div class="logo u-pull-left">
-    logo
-  </div>
+  <a href="/">
+    <div class="logo u-pull-left">
+      logo
+    </div>
+  </a>
   <nav class="u-pull-right">
-    <a href="/"></a>
-    <a href="/signup">sign up</a>
-    <a href="/login">login</a>
+    <div *ngIf="authService.isLoggedOut">
+      <a href="/signup">sign up</a>
+      <a href="/login">login</a>
+    </div>
+    <div *ngIf="authService.isLoggedOut === false">
+      <a (click)="logout()">logout</a>
+    </div>
   </nav>
 </header>
 <router-outlet></router-outlet>
