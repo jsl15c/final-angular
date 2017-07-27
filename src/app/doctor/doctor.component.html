@@ -1,3 +1,11 @@
+<div *ngIf="authService.currentUser">
+<h5>Hello, {{authService.currentUser.firstName}}</h5>
 <p>
-  doctor works!
+  Here are your patients
 </p>
+<ul *ngIf="authService.currentUser">
+  <li *ngFor="let patient of authService.currentUser.patients">
+    {{patient.firstName}}
+  </li>
+</ul>
+</div>

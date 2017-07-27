@@ -14,6 +14,9 @@ export class PatientToDoctorService {
     return this.myHttp
       .post(
         'http://localhost:3000/patient-api/add-patient-doctor',
+        {
+          patientKey:doctorCode
+        },
         {withCredentials:true},
       )
       .toPromise()

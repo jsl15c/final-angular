@@ -1,0 +1,32 @@
+@import "../../utilities/_variables.scss";
+
+.patient-section {
+  height:100%;
+  position: absolute;
+  width:100%;
+  background:$light-blue;
+
+  .sidebar {
+    height:100vh;
+    background:rgba(0,0,0,0.5);
+    width:15%;
+
+    .sidebar-content {
+      text-align: center;
+      padding-top:10vh;
+
+      a {
+        display:block;
+        margin-top:20px;
+      }
+
+      img {
+        max-width:50%;
+      }
+    }
+  }
+
+  .patient-data {
+    width:85%;
+  }
+}

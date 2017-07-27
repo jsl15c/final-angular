@@ -25,6 +25,12 @@ export class PatientComponent implements OnInit {
 
   currentUser:any = {};
 
+  viewTrack:boolean;
+  viewProgress:boolean;
+  viewDoctor:boolean;
+  viewNotes:boolean;
+  viewHelp:boolean;
+
 
 
   constructor(
@@ -34,23 +40,10 @@ export class PatientComponent implements OnInit {
     private pdService: PatientToDoctorService
   ) { }
 
+
   ngOnInit() {
     this.authService.checklogin()
-    .then((resultFromApi) => {
-      // this.isLoggedOut = false;
-      console.log(resultFromApi);
-      if (resultFromApi.userType === "patient") {
-        this.router.navigate(['/patient']);
-        this.authService.currentUser = resultFromApi;
-
-      }
-    })
-    .catch((err) => {
-      if(err) {
-        this.router.navigate(['/signup']);
-        return;
-      }
-    });
+    this.checkLogin();
   }
 
   addPatientData() {
@@ -70,11 +63,15 @@ export class PatientComponent implements OnInit {
   }
 
   addToDoctor() {
+    console.log(this.doctorCode + "---------------------")
     this.pdService.addToDoctor(this.doctorCode)
       .then((resultFromApi) => {
         console.log('code: ' + this.doctorCode)
         this.doctorCode = "";
         console.log('doctor added: ' + this.doctorCode);
+        this.checkLogin();
+
+
       })
       .catch((err) => {
         // const parsedError = err.json();
@@ -92,4 +89,25 @@ export class PatientComponent implements OnInit {
       console.log('error removing id');
     })
   }
-}
+
+
+    checkLogin() {
+      this.authService.checklogin()
+      .then((resultFromApi) => {
+        // this.isLoggedOut = false;
+        console.log(resultFromApi);
+        if (resultFromApi.userType === "patient") {
+          this.router.navigate(['/patient']);
+          this.authService.currentUser = resultFromApi;
+        }
+    })
+    .catch((err) => {
+      if(err) {
+        this.router.navigate(['/signup']);
+        return;
+      }
+    });
+  }
+
+
+  }

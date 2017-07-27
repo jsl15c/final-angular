@@ -1,7 +1,39 @@
 <section class="patient-section">
-  Hello, {{authService.currentUser.firstName}}
+<div class="row">
+
+    <div class="sidebar left">
+      <div class="sidebar-content">
+        <img src="../assets/images/profile.png" />
+        <p>
+          {{authService.currentUser.firstName}}
+          {{authService.currentUser.lastName}}
+        </p>
+        <div class="sidebar-menu">
+          <a href="/track">TRACK</a>
+          <a href="#">PROGRESS</a>
+          <a href="#">MY DOCTOR</a>
+          <a href="#">DR NOTES</a>
+          <a href="#">HELP</a>
+        </div>
+      </div>
+    </div>
+    <div class="patient-data left">
+      <div class="data">
+
+      </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+
 </section>
 
+<!-- <div *ngIf="currentUser">
 <form *ngIf="authService.currentUser.doctors.length === 0"
 (ngSubmit)="addToDoctor()">
   <label for="doctor-code"></label>
@@ -16,3 +48,6 @@
   </button>
   {{authService.currentUser.doctors[0].firstName}}
 </p>
+</div>
+
+Hello, {{authService.currentUser.firstName}} -->
