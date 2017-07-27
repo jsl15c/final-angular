@@ -48,13 +48,13 @@ export class LoginComponent implements OnInit {
         this.email= "",
         this.password = ""
         this.errorMsg = ""
-        // redirect to doctors page
-        this.router.navigate(['/doctor'])
+        // redirect to doctor page
+        this.router.navigate(['/doctor']);
         this.authService.isLoggedOut = false;
       })
       .catch((err) => {
-      const parsedError = err.json();
-
+        const parsedError = err.json();
+        console.log(parsedError + '🛑');
     });
   }
 

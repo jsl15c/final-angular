@@ -19,19 +19,17 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.authService.checklogin()
     .then((resultFromApi) => {
-      console.log(resultFromApi);
-      // this.isLoggedOut = false;
       if (resultFromApi.userType === 'patient') {
         this.router.navigate(['/patient']);
-        // console.log(resultFromApi.userType);
+        // console.log(resultFromApi);
         this.authService.isLoggedOut = false;
-        this.authService.currentUser = resultFromApi;
+        // this.authService.currentUser = resultFromApi;
       }
       if (resultFromApi.userType === 'doctor') {
         this.router.navigate(['/doctor']);
         // console.log(resultFromApi.userType);
         this.authService.isLoggedOut = false;
-        this.authService.currentUser = resultFromApi;
+        // this.authService.currentUser = resultFromApi;
       }
     })
     .catch((err) => {
@@ -40,7 +38,6 @@ export class AppComponent implements OnInit {
         return;
       }
     });
-
   }
 
   logout() {

@@ -20,14 +20,16 @@ export class DoctorComponent implements OnInit {
     this.authService.checklogin()
     .then((resultFromApi) => {
       // this.isLoggedOut = false;
-      if (resultFromApi.userType === "patient") {
-        this.router.navigate(['/patients']);
+      console.log(resultFromApi);
+      if (resultFromApi.userType === "doctor") {
+        this.router.navigate(['/doctor']);
         this.authService.currentUser = resultFromApi;
       }
     })
     .catch((err) => {
       if(err) {
         this.router.navigate(['/signup']);
+
         return;
       }
     });

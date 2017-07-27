@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { AuthService } from '../services/auth.service';
-// import { PatientToDoctorService } from '../services/patient-to-doctor.service';
+import { PatientToDoctorService } from '../services/patient-to-doctor.service';
 
 
 @Component({
@@ -21,22 +21,28 @@ export class PatientComponent implements OnInit {
 
   doctorCode:string;
 
+  hasDoctor:boolean;
+
+  currentUser:any = {};
+
 
 
   constructor(
     private dataService: DataService,
     private router: Router,
     private authService: AuthService,
-    // private pdService: PatientToDoctorService
+    private pdService: PatientToDoctorService
   ) { }
 
   ngOnInit() {
     this.authService.checklogin()
     .then((resultFromApi) => {
       // this.isLoggedOut = false;
+      console.log(resultFromApi);
       if (resultFromApi.userType === "patient") {
         this.router.navigate(['/patient']);
         this.authService.currentUser = resultFromApi;
+
       }
     })
     .catch((err) => {
@@ -45,7 +51,6 @@ export class PatientComponent implements OnInit {
         return;
       }
     });
-
   }
 
   addPatientData() {
@@ -59,22 +64,32 @@ export class PatientComponent implements OnInit {
         this.errorMsg = '';
       })
       .catch((err) => {
-        alert('error submitting');
-        const parsedError = err.json();
-        this.errorMsg = parsedError.message;
+        console.log(err);
+        return;
       })
   }
 
-  // addToDoctor() {
-  //   this.pdService.addToDoctor(this.doctorCode)
-  //     .then((resultFromApi) => {
-  //       this.doctorCode = "";
-  //       console.log('doctor added: ' + this.doctorCode);
-  //     })
-  //     .catch((err) => {
-  //       alert('error submitting');
-  //       const parsedError = err.json();
-  //       this.errorMsg = parsedError.message;
-  //     })
-  // }
+  addToDoctor() {
+    this.pdService.addToDoctor(this.doctorCode)
+      .then((resultFromApi) => {
+        console.log('code: ' + this.doctorCode)
+        this.doctorCode = "";
+        console.log('doctor added: ' + this.doctorCode);
+      })
+      .catch((err) => {
+        // const parsedError = err.json();
+        // this.errorMsg = parsedError.message;
+        console.log('error code: ' + this.doctorCode)
+      })
+  }
+
+  removeDoc() {
+    this.pdService.removeDoc()
+      .then((resultFromApi) => {
+      console.log(resultFromApi);
+    })
+    .catch((err) => {
+      console.log('error removing id');
+    })
+  }
 }

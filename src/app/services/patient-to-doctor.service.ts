@@ -10,10 +10,20 @@ export class PatientToDoctorService {
     private myHttp: Http
   ) { }
 
-  addToDoctor(code) {
+  addToDoctor(doctorCode) {
     return this.myHttp
-      .get(
-        'http://localhost:doctor-api/list',
+      .post(
+        'http://localhost:3000/patient-api/add-patient-doctor',
+        {withCredentials:true},
+      )
+      .toPromise()
+      .then(res => res.json());
+  }
+
+  removeDoc() {
+    return this.myHttp
+      .post(
+        'http://localhost:3000/patient-api/remove-doctor',
         {withCredentials:true},
       )
       .toPromise()

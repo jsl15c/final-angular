@@ -1,12 +1,18 @@
 <section class="patient-section">
   Hello, {{authService.currentUser.firstName}}
 </section>
-<form (ngSubmit)="addPatientData()">
 
-</form>
-<form (ngSubmit)="addToDoctor()">
+<form *ngIf="authService.currentUser.doctors.length === 0"
+(ngSubmit)="addToDoctor()">
   <label for="doctor-code"></label>
   <input id="doctor-code" [(ngModel)]="doctorCode"
   name="doctor-code"/>
   <button>add doctor</button>
 </form>
+<h4>Doctors</h4>
+<p *ngIf="authService.currentUser.doctors.length === 1">
+  <button (click)="removeDoc()">
+    remove doctors
+  </button>
+  {{authService.currentUser.doctors[0].firstName}}
+</p>

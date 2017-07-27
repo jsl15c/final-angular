@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class AuthService {
 
@@ -103,6 +105,17 @@ export class AuthService {
   checklogin() {
     return this.myHttp.get(
       'http://localhost:3000/api/checklogin',
+      // send cookies across domains
+      {withCredentials:true},
+    )
+    .toPromise()
+    .then(res => res.json());
+  }
+
+  // GET checklogin
+  populate() {
+    return this.myHttp.get(
+      'http://localhost:3000/api/populate',
       // send cookies across domains
       {withCredentials:true},
     )

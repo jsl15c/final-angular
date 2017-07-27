@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import {AuthService} from './services/auth.service';
 import {DataService} from './services/data.service';
+import {PatientToDoctorService} from './services/patient-to-doctor.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,7 +32,8 @@ import { DoctorComponent } from './doctor/doctor.component';
   ],
   providers: [
     AuthService,
-    DataService
+    DataService,
+    PatientToDoctorService
   ],
   bootstrap: [AppComponent]
 })

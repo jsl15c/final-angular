@@ -28,5 +28,4 @@ export class DataService {
       .toPromise()
       .then(res => res.json());
    }
-
 }
