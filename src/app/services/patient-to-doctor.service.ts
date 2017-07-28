@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 // methods for AJAX for Http
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class PatientToDoctorService {
@@ -13,7 +14,7 @@ export class PatientToDoctorService {
   addToDoctor(doctorCode) {
     return this.myHttp
       .post(
-        'http://localhost:3000/patient-api/add-patient-doctor',
+        environment.apiBase + '/patient-api/add-patient-doctor',
         {
           patientKey:doctorCode
         },
@@ -26,7 +27,7 @@ export class PatientToDoctorService {
   removeDoc() {
     return this.myHttp
       .post(
-        'http://localhost:3000/patient-api/remove-doctor',
+        environment.apiBase + '/patient-api/remove-doctor',
         {withCredentials:true},
       )
       .toPromise()

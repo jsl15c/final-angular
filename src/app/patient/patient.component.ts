@@ -36,7 +36,7 @@ export class PatientComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private router: Router,
-    private authService: AuthService,
+    public authService: AuthService,
     private pdService: PatientToDoctorService
   ) { }
 

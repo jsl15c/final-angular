@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 // methods for AJAX for Http
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -19,7 +18,7 @@ export class AuthService {
   patientSignup(firstName, lastName, email, password) {
     return this.myHttp
       .post(
-        'http://localhost:3000/patient-api/signup',
+        environment.apiBase + '/patient-api/signup',
         // form body info to send to backend (req.body)
         {
           firstName:firstName,
@@ -37,7 +36,7 @@ export class AuthService {
   // POST login
   patientLogin(email, password) {
     return this.myHttp.post(
-      'http://localhost:3000/patient-api/login',
+      environment.apiBase + '/patient-api/login',
       {
         email:email,
         password:password
@@ -55,7 +54,7 @@ export class AuthService {
   doctorSignup(firstName, lastName, email, password) {
     return this.myHttp
       .post(
-        'http://localhost:3000/doctor-api/signup',
+        environment.apiBase + '/doctor-api/signup',
         // form body info to send to backend (req.body)
         {
           firstName:firstName,
@@ -73,7 +72,7 @@ export class AuthService {
   // POST login
   doctorLogin(email, password) {
     return this.myHttp.post(
-      'http://localhost:3000/doctor-api/login',
+      environment.apiBase + '/doctor-api/login',
       {
         email:email,
         password:password
@@ -92,7 +91,7 @@ export class AuthService {
   logout() {
     return this.myHttp
     .post(
-      'http://localhost:3000/api/logout',
+      environment.apiBase + '/api/logout',
       {},
       {withCredentials:true}
     )
@@ -104,7 +103,7 @@ export class AuthService {
   // GET checklogin
   checklogin() {
     return this.myHttp.get(
-      'http://localhost:3000/api/checklogin',
+      environment.apiBase + '/api/checklogin',
       // send cookies across domains
       {withCredentials:true},
     )
@@ -115,7 +114,7 @@ export class AuthService {
   // GET checklogin
   populate() {
     return this.myHttp.get(
-      'http://localhost:3000/api/populate',
+      environment.apiBase + '/api/populate',
       // send cookies across domains
       {withCredentials:true},
     )

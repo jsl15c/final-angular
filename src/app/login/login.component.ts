@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   errorMsg:string;
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
 
   ) { }

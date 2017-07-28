@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class DataService {
 
@@ -12,7 +14,7 @@ export class DataService {
    addData(duration, disruptions, diet, treatment) {
      return this.myHttp
       .post(
-        'http://localhost:3000/api/patient-data',
+        environment.apiBase + '/api/patient-data',
         {
           sleep: {
             duration:duration,
