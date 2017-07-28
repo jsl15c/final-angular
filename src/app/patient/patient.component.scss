@@ -4,29 +4,75 @@
   height:100%;
   position: absolute;
   width:100%;
-  background:$light-blue;
+  color:#fff;
 
   .sidebar {
     height:100vh;
-    background:rgba(0,0,0,0.5);
+    background:$dark-grey;
+    box-shadow:4px 0 4px 0 rgba(0,0,0,0.5);
     width:15%;
+    position: relative;
+    overflow: hidden;
+    z-index:2;
 
     .sidebar-content {
       text-align: center;
       padding-top:10vh;
+      position: relative;
+      overflow: hidden;
+      z-index:1;
 
       a {
         display:block;
-        margin-top:20px;
+        padding:10px;
+        color:#fff;
+        cursor: pointer;
       }
+
+        a:hover {
+          color:$dark-grey;
+          background:#fff;
+          transition:0.3s ease-in;
+        }
+
 
       img {
         max-width:50%;
       }
+
+
     }
   }
 
   .patient-data {
     width:85%;
+    height:100vh;
+    background:$dark-grey;
   }
+
+  input {
+    color:#fff!important;
+    font-size:20px;
+    -webkit-appearance:none;
+    background: transparent;
+    border-bottom:2px solid #fff;
+  }
+
+}
+
+.input-data {
+  display:none;
+  left:-1000px;
+  padding:50px;
+  position: relative;
+}
+
+.display {
+  display:block!important;
+  animation:1.5s switch forwards;
+
+}
+
+@keyframes switch {
+  100% {left:0px}
 }

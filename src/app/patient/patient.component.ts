@@ -15,7 +15,6 @@ export class PatientComponent implements OnInit {
   duration:number;
   disruptions:number;
   diet:Array<string>;
-  treatment:Array<string>;
 
   errorMsg:string;
 
@@ -25,11 +24,11 @@ export class PatientComponent implements OnInit {
 
   currentUser:any = {};
 
-  viewTrack:boolean;
-  viewProgress:boolean;
-  viewDoctor:boolean;
-  viewNotes:boolean;
-  viewHelp:boolean;
+  showTrack:boolean;
+  showProgress:boolean;
+  showDoctor:boolean;
+  showNotes:boolean;
+  showHelp:boolean;
 
 
 
@@ -42,28 +41,30 @@ export class PatientComponent implements OnInit {
 
 
   ngOnInit() {
-    this.authService.checklogin()
     this.checkLogin();
+    this.showTrack = true;
   }
 
   addPatientData() {
     this.dataService.addData(this.duration, this.disruptions,
-                             this.diet, this.treatment)
+                             this.diet)
       .then((resultFromApi) => {
+        // console.log(resultFromApi);
         this.duration = null;
         this.disruptions = null;
         this.diet = [];
-        this.treatment = [];
-        this.errorMsg = '';
+        this.showTrack = false;
+        this.showProgress = true;
       })
       .catch((err) => {
-        console.log(err);
+        // const error = err.json();
+        // console.log(error);
+        console.log('🔥🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥');
         return;
       })
   }
 
   addToDoctor() {
-    console.log(this.doctorCode + "---------------------")
     this.pdService.addToDoctor(this.doctorCode)
       .then((resultFromApi) => {
         console.log('code: ' + this.doctorCode)
@@ -107,6 +108,38 @@ export class PatientComponent implements OnInit {
         return;
       }
     });
+  }
+
+  slideTrack() {
+    this.showTrack = true;
+    this.showProgress = false;
+    this.showDoctor = false;
+    this.showNotes = false;
+    this.showHelp = false;
+  }
+
+  slideProgress() {
+    this.showTrack = false;
+    this.showProgress = true;
+    this.showDoctor = false;
+    this.showNotes = false;
+    this.showHelp = false;
+  }
+
+  slideDoctor() {
+    this.showTrack = false;
+    this.showProgress = false;
+    this.showDoctor = true;
+    this.showNotes = false;
+    this.showHelp = false;
+  }
+
+  slideNotes() {
+    this.showTrack = false;
+    this.showProgress = false;
+    this.showDoctor = false;
+    this.showNotes = true;
+    this.showHelp = false;
   }
 
 

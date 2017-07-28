@@ -9,28 +9,59 @@
           {{authService.currentUser.lastName}}
         </p>
         <div class="sidebar-menu">
-          <a href="/track">TRACK</a>
-          <a href="#">PROGRESS</a>
-          <a href="#">MY DOCTOR</a>
-          <a href="#">DR NOTES</a>
-          <a href="#">HELP</a>
+          <a (click)="slideTrack()">TRACK</a>
+          <a (click)="slideProgress()">PROGRESS</a>
+          <a (click)="slideDoctor()">MY DOCTOR</a>
+          <a (click)="slideNotes()">DR NOTES</a>
+          <a (click)="slideHelp()">SETTINGS</a>
         </div>
       </div>
     </div>
-    <div class="patient-data left">
-      <div class="data">
-
+    <div class="patient-data left input-data" [ngClass]="{display:showTrack}">
+      <h3>Health Tracker</h3>
+      <h5>
+        sleep
+      </h5>
+        <form (ngSubmit)="addPatientData()">
+          <label for="duration"></label>
+          <input id="duration" [(ngModel)]="duration"
+          name="duration" placeholder="duration"/>
+          <label for="disruptions"></label>
+          <input id="disruptions" [(ngModel)]="disruptions"
+          name="disruptions" placeholder="disruptions"/>
+          <label for="diet"></label>
+          <input id="diet" [(ngModel)]="diet"
+          name="diet" placeholder="diet"/>
+          <button>add new patient data</button>
+        </form>
       </div>
+
+      <div class="patient-data left input-data" [ngClass]="{display:showProgress}">
+          show progress works
+
+        </div>
+
+        <div class="patient-data left input-data" [ngClass]="{display:showDoctor}">
+          <h3>My Doctor</h3>
+          <div *ngIf="authService.currentUser.doctors.length === 0 ">
+            Please enter a <span>Doctor Code</span> to add your doctor.
+            <form (ngSubmit)="addToDoctor()">
+              <label for="doctor-code"></label>
+              <input id="doctor-code" [(ngModel)]="doctorCode"
+              name="doctor-code"/>
+              <button>add doctor</button>
+            </form>
+          </div>
+
+          <div *ngIf="authService.currentUser.doctors.length === 1">
+            <h4>Dr. {{authService.currentUser.doctors[0].lastName}}</h4>
+          </div>
+        </div>
+
+          <div class="patient-data left input-data" [ngClass]="{display:showNotes}">
+              show notes works
+            </div>
     </div>
-
-
-
-
-
-</div>
-
-
-
 </section>
 
 <!-- <div *ngIf="currentUser">

@@ -36,6 +36,14 @@ header {
   width:80%;
 }
 
+input {
+  border:0;
+}
+
+input:focus {
+  outline:none;
+}
+
 div {
   box-sizing: border-box;
 }
