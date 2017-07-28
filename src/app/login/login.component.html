@@ -1,19 +1,35 @@
-<form (ngSubmit)="patientLogin()">
-  <label for="email-input">Email</label>
+<div class="login-box">
+<div class="toggle-login">
+  <div [ngClass]="{selected:isPatient}"
+  (click)="selectUser()" class="box">
+    PATIENT
+  </div>
+  <div [ngClass]="{selected:isDoctor}"
+  (click)="selectUser()" class="box">
+    DOCTOR
+  </div>
+</div>
+<div class="forms">
+<form (ngSubmit)="patientLogin()"
+*ngIf="isPatient === true">
+  <label for="email-input"></label>
   <input id="email-input" name="email"
-  [(ngModel)]="email"/>
-  <label for="password-input">Password</label>
+  [(ngModel)]="email" placeholder="email"/>
+  <label for="password-input"></label>
   <input id="password-input" name="password"
-  [(ngModel)]="password"/>
+  [(ngModel)]="password" placeholder="password"/>
   <button>patient login</button>
 </form>
 <br />
-<form (ngSubmit)="doctorLogin()">
-  <label for="email-input">Email</label>
+<form (ngSubmit)="doctorLogin()"
+*ngIf="isDoctor === true">
+  <label for="email-input"></label>
   <input id="email-input" name="email"
-  [(ngModel)]="email"/>
-  <label for="password-input">Password</label>
+  [(ngModel)]="email" placeholder="email"/>
+  <label for="password-input"></label>
   <input id="password-input" name="password"
-  [(ngModel)]="password"/>
+  [(ngModel)]="password" placeholder="password"/>
   <button>doctor login</button>
 </form>
+</div>
+</div>

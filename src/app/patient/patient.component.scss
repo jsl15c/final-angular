@@ -1,10 +1,12 @@
 @import "../../utilities/_variables.scss";
 
 .patient-section {
-  height:100%;
-  position: absolute;
+  height:90vh;
+  position: relative;
   width:100%;
+  top:0;right:0;left:0;bottom:0;
   color:#fff;
+  overflow:hidden;
 
   .sidebar {
     height:100vh;
@@ -42,6 +44,14 @@
 
 
     }
+  }
+
+  .data {
+    padding:20px;
+    border:1px solid #fff;
+    display:inline-block;
+    width:250px;
+    margin:10px;
   }
 
   .patient-data {

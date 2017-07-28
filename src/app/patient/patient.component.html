@@ -12,32 +12,51 @@
           <a (click)="slideTrack()">TRACK</a>
           <a (click)="slideProgress()">PROGRESS</a>
           <a (click)="slideDoctor()">MY DOCTOR</a>
-          <a (click)="slideNotes()">DR NOTES</a>
-          <a (click)="slideHelp()">SETTINGS</a>
+          <!-- <a (click)="slideNotes()">DR NOTES</a>
+          <a (click)="slideSettings()">SETTINGS</a> -->
         </div>
       </div>
     </div>
     <div class="patient-data left input-data" [ngClass]="{display:showTrack}">
       <h3>Health Tracker</h3>
-      <h5>
-        sleep
-      </h5>
+
         <form (ngSubmit)="addPatientData()">
           <label for="duration"></label>
           <input id="duration" [(ngModel)]="duration"
-          name="duration" placeholder="duration"/>
+          name="duration" placeholder="sleep duration"/>
           <label for="disruptions"></label>
           <input id="disruptions" [(ngModel)]="disruptions"
-          name="disruptions" placeholder="disruptions"/>
+          name="disruptions" placeholder="sleep disruptions"/>
           <label for="diet"></label>
           <input id="diet" [(ngModel)]="diet"
-          name="diet" placeholder="diet"/>
+          name="diet" placeholder="daily diet"/>
           <button>add new patient data</button>
         </form>
       </div>
 
-      <div class="patient-data left input-data" [ngClass]="{display:showProgress}">
-          show progress works
+      <div
+      class="patient-data left input-data"
+      [ngClass]="{display:showProgress}">
+      <div *ngIf="authService.currentUser.data.length > 0">
+        <div class="data" *ngFor="let data of authService.currentUser.data">
+          <p>
+          Average sleep duration: {{data.sleep.duration}} hours
+        </p>
+        <p>
+            Sleep disruptions: {{data.sleep.disruptions}} hours
+        </p>
+        <p>
+            Diet: {{data.diet}}
+        </p>
+
+      </div>
+    </div>
+      <div *ngIf="authService.currentUser.data.length === 0">
+        <p>
+          You do not have any records
+        </p>
+      </div>
+
 
         </div>
 
@@ -61,6 +80,10 @@
           <div class="patient-data left input-data" [ngClass]="{display:showNotes}">
               show notes works
             </div>
+
+            <div class="patient-data left input-data" [ngClass]="{display:showHelp}">
+                show notes works
+              </div>
     </div>
 </section>
 

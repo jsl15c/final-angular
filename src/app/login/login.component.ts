@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
   password:string;
   errorMsg:string;
 
+  isPatient:boolean = true;
+  isDoctor:boolean = false;
+
   constructor(
     public authService: AuthService,
     private router: Router
@@ -56,6 +59,11 @@ export class LoginComponent implements OnInit {
         const parsedError = err.json();
         console.log(parsedError + '🛑');
     });
+  }
+
+  selectUser() {
+    this.isPatient = !this.isPatient;
+    this.isDoctor = !this.isDoctor;
   }
 
 }

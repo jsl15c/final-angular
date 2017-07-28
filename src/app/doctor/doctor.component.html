@@ -1,11 +1,37 @@
-<div *ngIf="authService.currentUser">
-<h5>Hello, {{authService.currentUser.firstName}}</h5>
-<p>
-  Here are your patients
-</p>
-<ul *ngIf="authService.currentUser">
-  <li *ngFor="let patient of authService.currentUser.patients">
-    {{patient.firstName}}
-  </li>
-</ul>
+<section class="doctors-section">
+  <div class="constraint">
+  <div class="header">
+    <div class="welcome col-1-2 left">
+    <h2>Welcome, Dr. {{authService.currentUser.lastName}}</h2>
+  </div>
+    <div class="right-info col-1-2 left">
+      <p>Connect with your patients using the code below:</p>
+      <p class="code">{{authService.currentUser.patientKey}}</p>
+    </div>
+  </div>
 </div>
+  <div class="patients" *ngIf="authService.currentUser.patients.length > 0">
+    <h4>
+      Patients
+    </h4>
+    <ul *ngIf="authService.currentUser">
+      <li *ngFor="let patient of authService.currentUser.patients">
+        <h5>
+          {{patient.firstName}}
+          {{patient.lastName}}
+        </h5>
+        <div *ngIf="patient.data.length > 0">
+        <p>
+          Average hours of sleep:{{patient.sleep.duration}}
+        </p>
+        <p>
+          Sleep disruptions: {{patient.sleep.disruptions}}
+        </p>
+        <p *ngIf="patient.data.length === 0">
+          Patient does not have data
+        </p>
+      </div>
+      </li>
+    </ul>
+</div>
+</section>

@@ -142,5 +142,13 @@ export class PatientComponent implements OnInit {
     this.showHelp = false;
   }
 
+  slideSettings() {
+    this.showTrack = false;
+    this.showProgress = false;
+    this.showDoctor = false;
+    this.showNotes = false;
+    this.showHelp = true;
+  }
+
 
   }
