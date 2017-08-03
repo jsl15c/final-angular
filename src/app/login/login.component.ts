@@ -27,22 +27,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.checklogin()
-    .then((resultFromApi) => {
-      // this.isLoggedOut = false;
-      console.log(resultFromApi);
-      if (resultFromApi.userType === "doctor") {
-        this.router.navigate(['/doctor']);
-        this.authService.currentUser = resultFromApi;
-      }
-    })
-    .catch((err) => {
-      if(err) {
-        this.router.navigate(['/signup']);
-
-        return;
-      }
-    });
   }
 
   patientLogin() {

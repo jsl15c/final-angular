@@ -8,7 +8,7 @@
   position: relative;
 
   h2 {
-    padding-top:100px;
+    padding:100px 0;
     color:#fff;
     display: inline-block;
   }
@@ -17,6 +17,17 @@
     bottom:0;
     left:0;
     max-width: 100%;
+  }
+
+  a {
+    background:$dark-blue;
+    text-decoration: none;
+    color:#fff;
+    display:block;
+    width:15%;
+    margin:auto;
+    padding:10px;
+    border-radius:25px;
   }
 }
 
