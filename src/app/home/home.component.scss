@@ -19,15 +19,20 @@
     max-width: 100%;
   }
 
-  a {
+  .demo-button {
     background:$dark-blue;
     text-decoration: none;
     color:#fff;
     display:block;
-    width:15%;
+    width:200px;
     margin:auto;
     padding:10px;
     border-radius:25px;
+    overflow: hidden;
+
+    a {
+      color:#fff!important;
+    }
   }
 }
 

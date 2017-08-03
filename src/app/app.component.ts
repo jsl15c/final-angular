@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'app';
 
+  isClicked:boolean = false;
+
   constructor(
     public authService: AuthService,
     public router: Router
@@ -44,5 +46,9 @@ export class AppComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/login']);
     this.authService.isLoggedOut = true;
+  }
+
+  toggleOpen() {
+    this.isClicked = !(this.isClicked);
   }
 }

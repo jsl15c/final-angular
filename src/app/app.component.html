@@ -4,6 +4,7 @@
       SapienHealth
     </div>
   </a>
+  <!-- desktop menu -->
   <nav class="u-pull-right">
     <div *ngIf="authService.isLoggedOut">
       <a href="/signup">sign up</a>
@@ -13,6 +14,14 @@
       <a (click)="logout()">logout</a>
     </div>
   </nav>
+  <!-- mobile menu -->
+  <div class="mobile-menu u-pull-right" (click)="toggleOpen()"
+  [ngClass]="{open:isClicked}">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>
 <router-outlet></router-outlet>
 <footer>
