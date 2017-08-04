@@ -5,12 +5,13 @@
   letter-spacing:2px;
   position: relative;
   background:$light-blue;
-  height:90vh;
+  height:auto;
   width:100%;
   top:0;
   bottom:0;
   left:0;
   right:0;
+  overflow-y: hidden;
 
   .welcome {
 

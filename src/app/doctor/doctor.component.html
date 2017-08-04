@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-  <div class="patients" *ngIf="authService.currentUser.patients.length > 0">
+  <div class="patients" *ngIf="authService.currentUser.patients">
     <h4>
       Patients
     </h4>
@@ -21,12 +21,14 @@
           {{patient.lastName}}
         </h5>
         <div *ngIf="patient.data.length > 0">
-        <p>
-          Average hours of sleep:{{patient.sleep.duration}}
-        </p>
-        <p>
-          Sleep disruptions: {{patient.sleep.disruptions}}
-        </p>
+          <div *ngFor="let data of patient.data">
+          <p>
+            Average hours of sleep:{{data.sleep.duration}}
+          </p>
+          <p>
+            Sleep disruptions: {{data.sleep.disruptions}}
+          </p>
+        </div>
         <p *ngIf="patient.data.length === 0">
           Patient does not have data
         </p>

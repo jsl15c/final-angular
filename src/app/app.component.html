@@ -22,8 +22,17 @@
     <span></span>
     <span></span>
   </div>
+  <div class="menu-content" [ngClass]="{showMenu:isClicked}">
+    <div *ngIf="authService.isLoggedOut">
+      <a href="/signup">sign up</a>
+      <a href="/login">login</a>
+      <p (click)="toggleOpen()">close</p>
+    </div>
+    <div *ngIf="authService.isLoggedOut === false">
+      <a (click)="logout()">logout</a>
+    </div>
+  </div>
 </header>
 <router-outlet></router-outlet>
 <footer>
-
 </footer>

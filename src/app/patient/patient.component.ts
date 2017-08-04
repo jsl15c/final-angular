@@ -49,6 +49,7 @@ export class PatientComponent implements OnInit {
     this.dataService.addData(this.duration, this.disruptions,
                              this.diet)
       .then((resultFromApi) => {
+        this.checkLogin();
         // console.log(resultFromApi);
         this.duration = null;
         this.disruptions = null;

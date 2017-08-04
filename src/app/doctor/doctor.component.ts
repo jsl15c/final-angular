@@ -24,12 +24,12 @@ export class DoctorComponent implements OnInit {
       if (resultFromApi.userType === "doctor") {
         this.router.navigate(['/doctor']);
         this.authService.currentUser = resultFromApi;
+        console.log(resultFromApi.patients);
       }
     })
     .catch((err) => {
       if(err) {
         this.router.navigate(['/signup']);
-
         return;
       }
     });

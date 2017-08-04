@@ -3,11 +3,15 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../../environments/environment';
+// import { AuthService } from './auth.service';
 
 @Injectable()
 export class DataService {
 
-  constructor(private myHttp: Http) { }
+  constructor(
+    private myHttp: Http
+    // private authService: AuthService
+  ) { }
 
   // POST patient data
    addData(duration, disruptions, diet) {
