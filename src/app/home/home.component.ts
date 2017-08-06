@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
   isPatient: boolean = true;
   isDoctor: boolean = false;
 
-
   constructor(
     public authService: AuthService,
     private router: Router

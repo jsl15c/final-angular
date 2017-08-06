@@ -29,14 +29,14 @@
          <ol class="defaultList"
              [ngClass]="{displayInfo:isPatient}"
              *ngIf="isPatient === true">
-           <li>sign up</li>
+           <a href="/signup"><li>sign up</li></a>
            <li>connect with a doctor</li>
            <li>live and feel better</li>
          </ol>
          <ol class="defaultList"
              [ngClass]="{displayInfo:isDoctor}"
              *ngIf="isDoctor === true">
-           <li>sign up</li>
+           <a href="/signup"><li>sign up</li></a>
            <li>give your patients your code</li>
            <li>connect and track their progress</li>
          </ol>
