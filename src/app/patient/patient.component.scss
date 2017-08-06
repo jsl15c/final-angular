@@ -87,3 +87,30 @@
 @keyframes switch {
   100% {left:0px}
 }
+@media screen and (max-width:512px) {
+  .sidebar {
+    height:15vh!important;
+    width:100%!important;
+
+    .sidebar-content {
+      padding-top:0!important;
+      position: absolute!important;
+
+      img {
+        max-width:10%!important;
+      }
+
+      a, p {
+        display: inline!important;
+      }
+    }
+  }
+
+  .patient-data {
+    width:100%!important;
+    height:100vh!important;
+    padding-top:15vh!important;
+    // overflow-y: scroll;
+    background:$dark-grey;
+  }
+}

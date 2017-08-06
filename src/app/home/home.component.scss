@@ -42,7 +42,8 @@
 }
 
 .how-it-works {
-  height:75vh;
+  // height:75vh;
+  overflow-y: hidden;
   background:$light-blue;
 
   .content {
@@ -101,5 +102,7 @@
 }
 
 @media screen and (max-width:485px){
-
+  .header-container {
+    height:80vh;
+  }
 }

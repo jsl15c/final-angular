@@ -5,7 +5,7 @@
   font-size:24px;
   letter-spacing: -2px;
   color:$dark-blue;
-  font-family:'Avenir Next';
+  font-family:'Avenir Next', sans-serif, 'Helvetica Neue';
   font-weight:600;
 }
 
@@ -108,14 +108,29 @@ nav {
 
 .menu-content {
   width:0%;
-  height:10vh;
+  height:15vh;
+  line-height: 15vh;
   overflow: hidden;
   position: fixed;
   z-index:999;
   left:0;
   top:10vh;
   background: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: center;
+  border-bottom:1px solid #000;
+
+  .options {
+    display:inline;
+
+    a, p {
+      padding:10px;
+      margin:0 10px;
+      background:$dark-blue;
+      color:#fff;
+      border-radius:25px;
+
+    }
+  }
 }
 
 .showMenu {

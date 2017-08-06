@@ -3,7 +3,8 @@
 .login-box {
   max-width:600px;
   width:100%;
-  margin:50px auto;
+  margin:0 auto;
+  margin-top:50px;
   background:rgba(250,250,250,0.5);
   padding:50px;
   text-align: center;
@@ -77,6 +78,10 @@ button {
     cursor:pointer;
     line-height: 100px;
     letter-spacing: 2px;
+  }
+
+  .login-box {
+    margin-top:0;
   }
 
   .selected {

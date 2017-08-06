@@ -23,12 +23,13 @@
     <span></span>
   </div>
   <div class="menu-content" [ngClass]="{showMenu:isClicked}">
-    <div *ngIf="authService.isLoggedOut">
+    <div class="options" *ngIf="authService.isLoggedOut">
+      <a href="/">home</a>
       <a href="/signup">sign up</a>
       <a href="/login">login</a>
-      <p (click)="toggleOpen()">close</p>
+      <!-- <p (click)="toggleOpen()">close</p> -->
     </div>
-    <div *ngIf="authService.isLoggedOut === false">
+    <div class="options" *ngIf="authService.isLoggedOut === false">
       <a (click)="logout()">logout</a>
     </div>
   </div>
