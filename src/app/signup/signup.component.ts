@@ -35,6 +35,7 @@ export class SignupComponent implements OnInit {
         this.errorMsg = "";
         // "redirect" to camels page
         this.router.navigate(['/patient']);
+        // this.checkLogin();
       })
       .catch((err) => {
           alert('error submitting');
@@ -53,6 +54,7 @@ export class SignupComponent implements OnInit {
         this.errorMsg = "";
         // "redirect" to camels page
         this.router.navigate(['/doctor']);
+        // this.checkLogin();
 
       })
       .catch((err) => {

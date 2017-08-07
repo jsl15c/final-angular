@@ -60,7 +60,6 @@ export class PatientComponent implements OnInit {
       .catch((err) => {
         // const error = err.json();
         // console.log(error);
-        console.log('🔥🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥');
         return;
       })
   }
@@ -72,8 +71,6 @@ export class PatientComponent implements OnInit {
         this.doctorCode = "";
         console.log('doctor added: ' + this.doctorCode);
         this.checkLogin();
-
-
       })
       .catch((err) => {
         // const parsedError = err.json();
