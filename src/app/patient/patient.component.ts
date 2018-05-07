@@ -58,8 +58,8 @@ export class PatientComponent implements OnInit {
         this.showProgress = true;
       })
       .catch((err) => {
-        // const error = err.json();
-        // console.log(error);
+        const error = err.json();
+        console.log(error);
         return;
       })
   }
@@ -93,8 +93,8 @@ export class PatientComponent implements OnInit {
     checkLogin() {
       this.authService.checklogin()
       .then((resultFromApi) => {
-        // this.isLoggedOut = false;
         console.log(resultFromApi);
+        this.authService.isLoggedOut = false;
         if (resultFromApi.userType === "patient") {
           this.router.navigate(['/patient']);
           this.authService.currentUser = resultFromApi;

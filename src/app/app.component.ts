@@ -24,19 +24,17 @@ export class AppComponent implements OnInit {
       if (resultFromApi.userType === 'patient') {
         this.router.navigate(['/patient']);
         // console.log(resultFromApi);
-        this.authService.isLoggedOut = false;
         // this.authService.currentUser = resultFromApi;
       }
       if (resultFromApi.userType === 'doctor') {
         this.router.navigate(['/doctor']);
         // console.log(resultFromApi.userType);
-        this.authService.isLoggedOut = false;
         // this.authService.currentUser = resultFromApi;
       }
     })
     .catch((err) => {
       if(err) {
-        this.authService.isLoggedOut = true;
+        console.log(err);
         return;
       }
     });
@@ -44,8 +42,8 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/login']);
     this.authService.isLoggedOut = true;
+    this.router.navigate(['/login']);
   }
 
   toggleOpen() {

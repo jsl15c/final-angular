@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.min.css']
 })
 export class LoginComponent implements OnInit {
   // isPatient: boolean = true;
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       .catch((err) => {
       const parsedError = err.json();
       console.log(parsedError + '🛑');
+      this.errorMsg = parsedError;
     });
   }
 
@@ -58,6 +59,7 @@ export class LoginComponent implements OnInit {
       .catch((err) => {
         const parsedError = err.json();
         console.log(parsedError + '🛑');
+        this.errorMsg = parsedError;
     });
   }
 

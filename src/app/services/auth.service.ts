@@ -7,9 +7,9 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class AuthService {
 
-  isLoggedOut:boolean;
-
   currentUser: any = {};
+
+  isLoggedOut:boolean = true;
 
   constructor(private myHttp: Http) { }
 

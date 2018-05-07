@@ -1,4 +1,4 @@
-@import "utilities/variables";
+@import "./utilities/_variables.scss";
 
 html, body {
   overflow-x: hidden;
@@ -58,6 +58,12 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.error {
+  color:red;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 @media screen and (max-width:550px) {

@@ -6,7 +6,6 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
-import { DemoComponent } from './demo/demo.component';
 
 const routes: Routes = [
   {
@@ -29,10 +28,6 @@ const routes: Routes = [
   {
     path:'doctor',
     component:DoctorComponent
-  },
-  {
-    path:'demo',
-    component:DemoComponent
   }
 ];
 

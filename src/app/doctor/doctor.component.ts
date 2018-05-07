@@ -6,7 +6,7 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-doctor',
   templateUrl: './doctor.component.html',
-  styleUrls: ['./doctor.component.scss']
+  styleUrls: ['./doctor.component.min.css']
 })
 export class DoctorComponent implements OnInit {
 
@@ -21,6 +21,7 @@ export class DoctorComponent implements OnInit {
     .then((resultFromApi) => {
       // this.isLoggedOut = false;
       console.log(resultFromApi);
+      this.authService.isLoggedOut = false;
       if (resultFromApi.userType === "doctor") {
         this.router.navigate(['/doctor']);
         this.authService.currentUser = resultFromApi;
