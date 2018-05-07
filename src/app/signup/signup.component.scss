@@ -71,4 +71,21 @@
     background:$dark-blue;
     box-shadow:0 0 10px rgba(0,0,0,0.5);
   }
+
+  .log-option {
+    display: block;
+    clear:both;
+    text-align:left;
+    margin:20px 5px;
+  }
+}
+
+.user-form {
+  input {
+    -webkit-appearance:none;
+    border:0!important;
+    border-radius:0!important;
+    height:auto;
+    padding:6px 10px;
+  }
 }

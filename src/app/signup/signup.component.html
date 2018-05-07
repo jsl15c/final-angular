@@ -17,12 +17,17 @@
       (click)="selectUser()" class="box">
         DOCTOR
       </div>
+      <div class="log-option">
+        <p>
+          Already a member?
+          <a href="login">Login</a>
+        </p>
+      </div>
     </div>
   </div>
   <div class="col-1-2 left user-form">
     <form *ngIf="isPatient === true"
           (ngSubmit)="patientSignUp()">
-      <h5>Patient Sign-up</h5>
       <label for="first-input">First Name</label>
       <input id="first-input"
       [(ngModel)]="firstName" name="firstName"/>
@@ -43,7 +48,6 @@
     </form>
     <form *ngIf="isDoctor === true"
           (ngSubmit)="doctorSignUp()">
-      <h5>Doctor Sign-up</h5>
       <label for="first-input">First Name</label>
       <input id="first-input"
       [(ngModel)]="firstName" name="firstName"/>
@@ -66,11 +70,5 @@
       {{errorMsg}}
     </p>
   </div>
-</div>
-<div class="log-option">
-  <p>
-    already a member?
-    <a href="login">login</a>
-  </p>
 </div>
 </section>
