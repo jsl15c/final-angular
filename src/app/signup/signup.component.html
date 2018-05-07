@@ -26,6 +26,9 @@
     </div>
   </div>
   <div class="col-1-2 left user-form">
+    <div *ngIf="errorMsg" class="error">
+      {{errorMsg}}
+    </div>
     <form *ngIf="isPatient === true"
           (ngSubmit)="patientSignUp()">
       <label for="first-input">First Name</label>
@@ -66,9 +69,6 @@
       <br />
       <button>Sign Up</button>
     </form>
-    <p *ngIf="errorMsg" class="error">
-      {{errorMsg}}
-    </p>
   </div>
 </div>
 </section>

@@ -37,7 +37,6 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/patient']);
       })
       .catch((err) => {
-          alert('error submitting');
           const parsedError = err.json();
           this.errorMsg = parsedError.message;
       });
@@ -55,7 +54,6 @@ export class SignupComponent implements OnInit {
 
       })
       .catch((err) => {
-          alert('error submitting');
           const parsedError = err.json();
           this.errorMsg = parsedError.message;
       });
